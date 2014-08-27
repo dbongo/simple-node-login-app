@@ -10,7 +10,7 @@ The application makes use of as many node modules as possible to reduce the amou
 * ejs
 * connect-roles
 
-Bootstrap is used for the UI. The required js and css files are included in the site directory. 
+Bootstrap is used for the UI. The required js and css files are hosted on CDN.
 
 Of course, this application does nothing useful. It is intended to be an example to build upon to implement useful functionality. There are other node frameworks that give you similar things for less effort, but the aim of this development was to use recent standard node modules and keep things as simple as possible. 
 
@@ -46,7 +46,7 @@ The application will try to find an admin user in the database and will create a
 You should then be able to login to the application and create other users as required.
 
 ## Credits
-This example builds on the [passport-local login example] (https://github.com/rob4acre/simple-node-login-app). It is modified to store user data in MongoDB using Mongoose and via [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose). The examples have been updated to work with Express 4. The app has been restructured to place all the routes, models and views in an app subdirectory. A lot of comments have been added to help a new node developer work out what is going on. Some of the restructuring has been inspired by the excellent Node in Action book. I hope that you find this example useful as a starting point to develop an application.
+This example builds on the [passport-local login example](https://github.com/jaredhanson/passport-local). It is modified to store user data in MongoDB using Mongoose and via [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose). The examples have been updated to work with Express 4. The app also uses [connect-roles](https://github.com/ForbesLindesay/connect-roles) for authorisation by user role. The app has been restructured to place all the routes, models and views in an app subdirectory. A lot of comments have been added to help a new node developer work out what is going on. Some of the restructuring has been inspired by the excellent Node in Action book. I hope that you find this example useful as a starting point to develop an application.
 
 ## License
 MIT license (http://opensource.org/licenses/MIT).
