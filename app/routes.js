@@ -1,6 +1,5 @@
 var passport = require('passport');
 var Account = require('./models/account');
-var Role = require('./models/role');
 var ensurelogin = require('connect-ensure-login');
 var ConnectRoles = require('connect-roles');
 

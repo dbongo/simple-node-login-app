@@ -38,7 +38,7 @@ This file should be configured with the username and password for the initial se
 
 ### Running
 Start the server as follows:
-    $ node app.js
+    $ node server.js
 
 The application will try to find an admin user in the database and will create a seed admin user when none exists according to the values in config/seed.js.
 
