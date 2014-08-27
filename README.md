@@ -22,6 +22,7 @@ Install node.js, npm and MongoDB
 Clone this git repository
 
 Fetch the node modules
+    
     $ cd simple-node-login-app
     $ npm install
 
@@ -38,11 +39,14 @@ This file should be configured with the username and password for the initial se
 
 ### Running
 Start the server as follows:
-    $ node server.js
 
+    $ node server.js
 The application will try to find an admin user in the database and will create a seed admin user when none exists according to the values in config/seed.js.
 
 You should then be able to login to the application and create other users as required.
+
+## Credits
+This example builds on the [passport-local login example] (https://github.com/rob4acre/simple-node-login-app). It is modified to store user data in MongoDB using Mongoose and via [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose). The examples have been updated to work with Express 4. The app has been restructured to place all the routes, models and views in an app subdirectory. A lot of comments have been added to help a new node developer work out what is going on. Some of the restructuring has been inspired by the excellent Node in Action book. I hope that you find this example useful as a starting point to develop an application.
 
 ## License
 MIT license (http://opensource.org/licenses/MIT).
