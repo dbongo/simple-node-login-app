@@ -1,0 +1,48 @@
+<% include layout-head.ejs %>
+
+	<div class="container">
+		<h1>Manage Users</h1>
+		<% if (message.length !== 0) { %>
+			<div class="alert alert-success" role="alert">
+				<%= message %>
+			</div>
+		<% } %>
+		<% if (error.length !== 0) { %>
+			<div class="alert alert-danger" role="alert">
+				<%= error %>
+			</div>
+		<% } %>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<tr>
+					<th>Username</th>
+					<th>Full Name</th>
+					<th>Initials</th>
+					<th>Role</th>
+					<th colspan="2">Actions</th>
+				</tr>
+				<% users.forEach(function(u) { %>
+					<tr>
+						<td><%= u.username %> <% if (user._id.toString() === u._id.toString()) { %><span class="label label-info">You</span><% } %></td>
+						<td><%= u.fullname %></td>
+						<td><%= u.initials %></td>
+						<td><%= u.role %></td>
+						<td><a href="/users/<%= u._id %>" class="btn btn-info btn-sm">Edit</a>
+						</td>
+						<% if (user._id.toString() !== u._id.toString()) { %>
+							<td><form method="POST" action="/users/<%= u._id %>?_method=DELETE">
+							  <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+							</form></td>
+						<% } else { %>
+							<td>
+							  <button disabled="disabled" class="btn btn-default btn-sm" type="submit">Delete</button>
+							</td>
+						<% } %>
+					</tr>
+				<% }) %>
+			</table>
+		</div>
+		<a href="/create" class="btn btn-default">Create User</a>
+	</div>
+
+<% include layout-foot.ejs %>

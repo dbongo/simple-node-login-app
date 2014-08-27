@@ -1,0 +1,48 @@
+<% include layout-head.ejs %>
+
+
+<div class="jumbotron">
+	<div class="container">
+		<h1>Admin</h1>
+	</div>
+</div>
+
+<div class="container">
+	<h1>Update <span class="label label-info"><%= user.username %></span></h1>
+	<% if (message.length !== 0) { %>
+		<div class="alert alert-success" role="alert">
+			<%= message %>
+		</div>
+	<% } %>
+	<% if (error.length !== 0) { %>
+		<div class="alert alert-danger" role="alert">
+			<%= error %>
+		</div>
+	<% } %>
+	<form action="/users/<%= user.id %>?_method=PUT" method="post" role="form">
+		<div class="form-group">
+			<label for="fullname">Full Name and Initials</label>
+			<input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" value="<%= user.fullname %>" />
+			<input type="text" class="form-control" id="initials" name="initials" placeholder="Initials" value="<%= user.initials %>" />
+		</div>
+		<div class="form-group">
+			<% if (locals.canEditRole) { %>
+				<label for="roleSelect">Role</label>
+				<select class="form-control" name="role" id="roleSelect">
+				<% roles.forEach(function(r) { %>
+					<option <% if (r === user.role) { %> selected <% } %> value="<%= r %>"> <%= r %></option>
+				<% }) %>
+				</select>
+			<% } %>
+		</div>
+		<div class="form-group">
+			<label for="pwdInput">New Password</label>
+			<input type="password" class="form-control" id="pwdInput" name="password" placeholder="Please Enter New Password or Leave Blank"/>
+		</div>
+		<button type="submit" class="btn btn-warning">Submit</button> <a href="/users" class="btn btn-default">Cancel</a>
+	</form>
+	<hr>
+	
+</div>
+
+<% include layout-foot.ejs %>

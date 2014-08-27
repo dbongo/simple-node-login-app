@@ -1,0 +1,28 @@
+<% include layout-head.ejs %>
+
+	<div class="container">
+		<h1>Welcome to <%= settings.title %></h1>
+		<% if (!locals.user) { %>
+			<p>Please login to continue</p>
+			<% if (error.length !== 0) { %>
+				<div class="alert alert-danger" role="alert">
+					<%= error %>
+				</div>
+			<% } %>		
+			<form action="/login" method="post">
+				<div class="form-group">
+					<label for="usernameInput">Username:</label>
+					<input type="text" class="form-control" id="usernameInput" name="username" placeholder="Enter Username"/>
+				</div>
+				<div class="form-group">
+					<label for="pwdInput">Password</label>
+					<input type="password" class="form-control" id="pwdInput" name="password" placeholder="Enter Password"/>
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		<% } else { %>
+			<p>Hello, <%= locals.user.username %>.</p>
+		<% } %>
+    </div>
+
+<% include layout-foot.ejs %>

@@ -1,0 +1,36 @@
+<% include layout-head.ejs %>
+
+
+<div class="container">
+
+	<h1>Add a New User</h1>
+	<% if (message.length !== 0) { %>
+		<div class="alert alert-warning" role="alert">
+			<%= message %>
+		</div>
+	<% } %>
+	<form action="/users" method="post">
+		<div class="form-group">
+			<label for="usernameInput">Username:</label>
+			<input type="text" class="form-control" id="usernameInput" name="username" placeholder="Enter Username"/>
+		</div>
+		<div class="form-group">
+			<label for="fullname">Full Name and Initials</label>
+			<input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name"/>
+			<input type="text" class="form-control" id="initials" name="initials" placeholder="Initials"/>
+		</div>
+		<div class="form-group">
+			<label for="pwdInput">Password</label>
+			<input type="password" class="form-control" id="pwdInput" name="password" placeholder="Enter Password"/>
+		</div>
+		<% if (!loginaftercreate) { %>
+			<input type="hidden" name="loginaftercreate" value="false"/>
+		<% } else { %>
+			<input type="hidden" name="loginaftercreate" value="true"/>
+		<% } %>
+		<button type="submit" class="btn btn-warning">Submit</button> <a href="/users" class="btn btn-default">Cancel</a>
+	</form>
+
+</div>
+
+<% include layout-foot.ejs %>

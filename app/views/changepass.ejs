@@ -1,0 +1,26 @@
+<% include layout-head.ejs %>
+
+<div class="container">
+	<h1>Change Password</h1>
+	<% if (message.length !== 0) { %>
+		<div class="alert alert-success" role="alert">
+			<%= message %>
+		</div>
+	<% } %>
+	<% if (error.length !== 0) { %>
+		<div class="alert alert-danger" role="alert">
+			<%= error %>
+		</div>
+	<% } %>
+	<form action="/users/changepass?_method=PUT" method="post" role="form">
+		<div class="form-group">
+			<label for="pwdOld">Existing Password</label>
+			<input type="password" class="form-control" id="pwdOld" name="oldpassword" placeholder="Please Enter Existing Password"/>
+			<label for="pwdInput">New Password</label>
+			<input type="password" class="form-control" id="pwdInput" name="password" placeholder="Please Enter New Password"/>
+		</div>
+		<button type="submit" class="btn btn-warning">Submit</button> <a href="/" class="btn btn-default">Cancel</a>
+	</form>
+</div>
+
+<% include layout-foot.ejs %>
