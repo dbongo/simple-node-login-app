@@ -1,8 +1,24 @@
 {
     "name": "passport-local-examples-login",
-    "version": "0.0.0",
+    "description": "simple node express 4 application to handle user login with an admin role to manage users",
+    "version": "0.0.1",
+    "repository": "git://github.com/rob4acre/simple-node-login-app.git",
+    "author": "Rob Foweraker <djinnster@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "express",
+        "mongoose",
+        "passport",
+        "passport-local",
+        "passport-local-mongoose",
+        "ejs",
+        "connect-roles",
+        "login management"
+    ],
+    "engines": {
+        "node": ">= 0.9"
+    },
     "dependencies": {
-        "bcrypt": ">= 0.0.0",
         "body-parser": ">=0.0.0",
         "chai": "^1.9.1",
         "connect-ensure-login": ">=0.0.0",
