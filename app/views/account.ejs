@@ -1,14 +1,9 @@
 <% include layout-head.ejs %>
 
-
-<div class="jumbotron">
-	<div class="container">
-		<h1>Admin</h1>
-	</div>
-</div>
-
 <div class="container">
-	<h1>Update <span class="label label-info"><%= user.username %></span></h1>
+	<h1>Update User</h1> 
+	<h1><span class="label label-info"><%= user.username %></span></h1>
+	<hr>
 	<% if (message.length !== 0) { %>
 		<div class="alert alert-success" role="alert">
 			<%= message %>
